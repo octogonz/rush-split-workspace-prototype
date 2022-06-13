@@ -1,0 +1,10 @@
+{
+  "name": "a",
+  "version": "0.0.0",
+  "dependencies": {
+    "b": "workspace:*",
+    "c": "workspace:*",
+    "d": "workspace:*",
+    "react": "*"
+  }
+}
