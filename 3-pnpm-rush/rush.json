@@ -464,12 +464,12 @@
     {
       "packageName": "a",
       "projectFolder": "a",
-      "splitWorkspace": true
+      //"splitWorkspace": true
     },
     {
       "packageName": "b",
       "projectFolder": "b",
-      "splitWorkspace": true
+      //"splitWorkspace": true
     },
     */
 

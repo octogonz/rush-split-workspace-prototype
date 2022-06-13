@@ -1,6 +1,9 @@
 {
   "name": "d",
   "version": "0.0.0",
+  "scripts": {
+    "build": "echo Building d"
+  },
   "dependencies": {
     "react": "*"
   }

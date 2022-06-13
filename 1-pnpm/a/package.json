@@ -1,6 +1,9 @@
 {
   "name": "a",
   "version": "0.0.0",
+  "scripts": {
+    "build": "echo Building a"
+  },
   "dependencies": {
     "b": "workspace:*",
     "c": "workspace:*",
