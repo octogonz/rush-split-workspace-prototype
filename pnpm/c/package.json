@@ -1,8 +1,0 @@
-{
-  "name": "c",
-  "version": "0.0.0",
-  "dependencies": {
-    "d": "workspace:*",
-    "react": "*"
-  }
-}
