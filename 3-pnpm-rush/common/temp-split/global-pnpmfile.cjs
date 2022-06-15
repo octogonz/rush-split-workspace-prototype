@@ -1,5 +1,7 @@
 'use strict';
 
+console.log(`==> Loaded "${__filename}"`)
+
 /**
  * This hook is invoked during installation before a package's dependencies
  * are selected.
@@ -9,7 +11,7 @@
  * The return value is the updated object.
  */
 function readPackage(packageJson, context) {
-  console.log(`==> Processing ${packageJson.name} from ${__filename}`);
+  console.log(`==> Processing "${packageJson.name}" from ${__filename}`);
   if (packageJson.name === 'a' || packageJson.name === 'b') {
     for (const dependencyName of Object.keys(packageJson.dependencies || {})) {
       if (dependencyName === 'c' || dependencyName === 'd') {

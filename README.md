@@ -103,12 +103,29 @@ Note that the **package.json** files use `workspace:*` instead of `link:`:
 }
 ```
 
-The cross-workspace dependencies will get rewritten during installation by [.pnpmfile.cjs](./3-pnpm-rush/a/.pnpmfile.cjs) files.  PNPM's design for `shared-workspace-lockfile=false` requires a separate **.pnpmfile.cjs** in each project folder, but we can probably hook that behavior somehow, to avoid having to copy+paste the **.pnpmfile.cjs** into every project.
+The cross-workspace dependencies will get rewritten during installation by [.pnpmfile.cjs](./3-pnpm-rush/a/.pnpmfile.cjs) files.  PNPM's design for `shared-workspace-lockfile=false` requires a separate **.pnpmfile.cjs** in each project folder.  However we can avoid having to copy+paste the **.pnpmfile.cjs** rules into every project folder by using the deprecated [global-pnpmfile](https://pnpm.io/pnpmfile) setting.
+
+This setting can be specified centrally in the workspace **.npmrc** file:
+
+[common/temp-split/.npmrc](./3-pnpm-rush/common/temp-split/.npmrc)
+```
+shared-workspace-lockfile=false
+
+# Documentation: https://pnpm.io/pnpmfile
+#
+# IMPORTANT: You need set _RUSH_REPO_FOLDER manually before invoking PNPM
+# because with "shared-workspace-lockfile=false", this .npmrc file gets resolved
+# with a different CWD for each project folder.
+global-pnpmfile=${_RUSH_REPO_FOLDER}/common/temp-split/global-pnpmfile.cjs
+```
 
 ### Installing this example:
 ```shell
 # Stage 1: Install the new (shared) workspace using Rush (must happen first)
 cd 3-pnpm-rush
+
+# Set the _RUSH_REPO_FOLDER to the absolute path of "3-pnpm-rush":
+export _RUSH_REPO_FOLDER=`pwd`
 
 # Install dependencies
 rush install
@@ -163,4 +180,3 @@ rush build
 - `rush install` will also inject the **.pnpmfile.cjs** workaround to rewrite `workspace:` -> `link:` as appropriate
 
 - Patch the Rush software so that `rush build` considers processes all projects (`a`, `b`, `c`, `d`) as if they belong to a single workspace.
-

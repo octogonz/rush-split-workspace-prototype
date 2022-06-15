@@ -1,3 +1,4 @@
 node_modules
 temp
+3-pnpm-rush/common/deploy
 *.log
