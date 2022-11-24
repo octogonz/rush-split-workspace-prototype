@@ -8,6 +8,8 @@
     "b": "workspace:*",
     "c": "workspace:*",
     "d": "workspace:*",
-    "react": "*"
+    "react": "*",
+    "rollup-plugin-terser": "7.0.2",
+    "rollup": "^2.0.0"
   }
 }
