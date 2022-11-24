@@ -1,8 +1,8 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 specifiers:
-  c: link:../c/
-  d: link:../d/
+  c: link:../c
+  d: link:../d
   react: '*'
 
 dependencies:
